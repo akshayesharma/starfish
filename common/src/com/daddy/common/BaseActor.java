@@ -47,6 +47,12 @@ public class BaseActor extends Actor {
         boundingPolygon.setOrigin(getOriginX(), getOriginY());
     }
 
+    /**
+     * this is based on how a circle's co-ordinates are calculated.
+     * if circle is having the origin at x, y then at any point P with angle theta the point is
+     * x + r*cos(theta), y + r*sin(theta)
+     * now for eclipse we have changed r to w/2 and h/2 respectively and if h and w are same then it will draw a circle.
+     */
     public void setEllipseBoundary(){
         int n = 8; // number of vertices.
         float w = getWidth();
