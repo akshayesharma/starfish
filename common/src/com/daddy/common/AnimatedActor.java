@@ -30,7 +30,7 @@ public class AnimatedActor extends BaseActor {
     }
 
     public void storeAnimation(String name, Texture tex){
-        TextureRegion region = new TextureRegion();
+        TextureRegion region = new TextureRegion(tex);
         TextureRegion[] frames = {region};
         Animation<TextureRegion> anim = new Animation<TextureRegion>(1.0f, frames);
         storeAnimation(name, anim);
@@ -40,7 +40,7 @@ public class AnimatedActor extends BaseActor {
         if(!animationStorage.containsKey(name) ){
             System.out.println("No animation: "+ name);
             return;
-        }else if(activeName.equals(name)) {
+        }else if(activeName!= null && activeName.equals(name)) {
             return;
         }else{
             elapsedTime = 0;
